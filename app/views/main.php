@@ -2,13 +2,29 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store</title>
+  <?php
+  include_once "app/views/secciones/css.php";
+  ?>
 </head>
 
 <body>
-  <h1>Bienvenidos</h1>
+  <div class="container-fluid">
+    <?php
+    include_once "app/views/secciones/menu.php";
+    ?>
+  </div>
+
+
+  <?php include_once "app/views/secciones/body.php"; ?>
+
+
+  <?php
+  include_once "app/views/secciones/footer.php";
+  ?>
+
+  <?php
+  include_once "app/views/secciones/script.php";
+  ?>
 </body>
 
 </html>

@@ -12,6 +12,7 @@ function login(e) {
       console.log(data.msg);
       if (data.success) {
         window.location = data.link;
+        //console.log(data);
       } else {
         mensaje.textContent = data.msg;
         mensaje.classList.remove("d-none");

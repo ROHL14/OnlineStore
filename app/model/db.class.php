@@ -2,7 +2,7 @@
 class BaseDeDatos
 {
   protected $conexion;
-  protected $isConeccted;
+  protected $isConnected = false;
 
   public function conectar()
   {
@@ -13,12 +13,36 @@ class BaseDeDatos
       "OnlineStore"
     );
 
-    if ($this->conexion->connect_errno) {
+    if ($this->conexion->connect_error) {
       echo "Error de conexion: {$this->conexion->connect_error}";
       $this->isConnected = false;
     } else {
       $this->isConnected = true;
     }
     return $this->isConnected;
+  }
+
+  public function executeQuery($query)
+  {
+    $result = $this->conexion->query($query);
+    $records = array();
+
+    while ($record = $result->fetch_assoc()) {
+      $records[] = $record;
+    }
+
+    return $records;
+  }
+
+  public function executeInsert($query)
+  {
+    $result = $this->conexion->query($query);
+    return $this->conexion->insert_id;
+  }
+
+  public function executeUpdate($query)
+  {
+    $result = $this->conexion->query($query);
+    return true;
   }
 }

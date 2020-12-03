@@ -20,23 +20,16 @@ class LoginController extends Controller
       }
 
       $_SESSION["id_usuario"] = $record["id_usuario"];
-      $_SESSION["tipo"] = $record["tipo"];
       $_SESSION["usuario"] = $record["user_name"];
       $_SESSION["nuser"] = "{$record['nombres']} {$record['apellidos']}";
 
-      if ($record["tipo"] == 1) {
-        $info = array(
-          'success' => true,
-          'msg' => 'Usuario correcto',
-          'link' => URL . "dashboard"
-        );
-      } else {
-        $info = array(
-          'success' => true,
-          'msg' => 'Usuario correcto',
-          'link' => URL . "dashboarduser"
-        );
-      }
+
+      $info = array(
+        'success' => true,
+        'msg' => 'Usuario correcto',
+        'link' => URL . "dashboard",
+        'datos' => $_SESSION
+      );
     } else {
       $info = array('success' => false, 'msg' => 'Usuario o password incorrecto');
     }

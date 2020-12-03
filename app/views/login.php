@@ -6,6 +6,11 @@
 </head>
 
 <body class="bg-dark">
+  <div>
+    <?php
+    include_once "app/views/secciones/menu.php";
+    ?>
+  </div>
   <div class="container py-5">
     <div class="row">
       <div class="col-md-6 mx-auto">
