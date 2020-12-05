@@ -110,7 +110,7 @@
   include_once "app/views/secciones/script.php";
   ?>
   <!-- productos -->
-  <script type="text/javascript" src="<?php echo URL; ?>public/js/productos.js"></script>
+  <script type="text/javascript" src="<?php echo URL; ?>public/js/productosView.js"></script>
 </body>
 
 </html>

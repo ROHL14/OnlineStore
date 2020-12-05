@@ -6,7 +6,7 @@ class ProductosController extends Controller
 	public function __construct($param)
 	{
 		$this->productos = new Productos();
-		parent::__construct("productos", $param);
+		parent::__construct("productosView", $param);
 	}
 	public function getAll()
 	{

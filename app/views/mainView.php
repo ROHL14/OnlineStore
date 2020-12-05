@@ -27,7 +27,7 @@
   ?>
 
   <!-- main -->
-  <script type="text/javascript" src="<?php echo URL; ?>public/js/main.js"></script>
+  <script type="text/javascript" src="<?php echo URL; ?>public/js/mainView.js"></script>
 </body>
 
 </html>

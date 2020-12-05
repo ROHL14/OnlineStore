@@ -40,6 +40,6 @@
   </div>
 </body>
 <?php include_once "app/views/secciones/script.php"; ?>
-<script type="text/javascript" src="<?php echo URL; ?>public/js/login.js"></script>
+<script type="text/javascript" src="<?php echo URL; ?>public/js/loginView.js"></script>
 
 </html>
