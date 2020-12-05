@@ -6,7 +6,7 @@ class LoginController extends Controller
   public function __construct($param)
   {
     $this->user = new Login();
-    parent::__construct("login", $param);
+    parent::__construct("loginView", $param);
   }
 
   public function validar()

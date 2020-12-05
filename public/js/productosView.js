@@ -35,7 +35,7 @@ function cargarDatos() {
     })
     .then((data) => {
       rellenarCategorias(data.records);
-      return API.loadMarcas();
+      return API.loadMarcasData();
     })
     .then((data) => {
       rellenarMarcas(data.records);
