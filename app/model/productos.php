@@ -10,9 +10,17 @@ class Productos extends BaseDeDatos {
     Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca");
 	}
 
+<<<<<<< HEAD
 	public function getProductoByCategory($id) {
 		return $this->executeQuery("Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca where b.id_categoria='$id'");
 	}
+=======
+  public function getAll()
+  {
+    return $this->executeQuery("
+    Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca");
+  }
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
 
 	public function getOneProductoByID($id) {
 		return $this->executeQuery("Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca where a.id_marca='$id'");

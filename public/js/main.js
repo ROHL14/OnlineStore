@@ -1,16 +1,14 @@
+<<<<<<< HEAD
 /*const slider = document.getElementsByClassName("slick-track");
+=======
+const newProducts = document.getElementById("newProducts");
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
 const API = new Api();
 const objDatos = {
   records: [],
   recordsFilter: [],
   currentPage: 1,
   filter: "",
-};
-const marcas = {
-  records: [],
-};
-const categorias = {
-  records: [],
 };
 
 // Eventos
@@ -20,36 +18,28 @@ function eventListeners() {
   document.addEventListener("DOMContentLoaded", cargarDatos);
 }
 
+<<<<<<< HEAD
 // Funciones
 /*function cargarDatos() {
+=======
+function cargarDatos() {
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
   API.loadProductos()
     .then((data) => {
       if (data.success) {
         objDatos.records = data.records;
         objDatos.currentPage = 1;
         createCards();
-        console.log(objDatos);
-        return API.loadCategorias();
       } else {
-        //mensaje.textContent = data.msj;
+        mensaje.textContent = data.msj;
       }
-    })
-    .then((data) => {
-      //rellenarCategorias(data.records);
-      categorias.records = data.records;
-      console.log(categorias);
-      return API.loadMarcas();
-    })
-    .then((data) => {
-      //rellenarMarcas(data.records);
-      marcas.records = data.records;
-      console.log(marcas);
     })
     .catch((error) => {
       console.error("Error msg:", error);
     });
 }  */
 
+<<<<<<< HEAD
 /*function rellenarCategorias(records) {
   //idCategoria.innerHTML = "";
   records.forEach((item) => {
@@ -72,56 +62,43 @@ function rellenarMarcas(records) {
   });
 }
 
+=======
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
 function createCards() {
-  console.log(slider[0]);
   let html = "";
-  var node = document.createElement("div");
+
   objDatos.records.forEach((item, index) => {
     const {
+      id_producto,
       nombre_producto,
       precio_producto,
       descripcion,
       imagen,
-      id_categoria,
-      id_marca,
+      categoria,
+      marca,
     } = item;
-    html += `
-      <div class="product slick-slide slick-cloned">
-        <div class="product-img">
-          <img src="${imagen}" alt="" />
-          <div class="product-label">
-            <span class="sale">-30%</span>
-            <span class="new">NUEVO</span>
-          </div>
-        </div>
-        <div class="product-body">
-          <h3 class="product-name">
-            <a href="product.html">${nombre_producto}</a>
-          </h3>
-          <h4 class="product-price">
-            $ <del class="product-old-price">$${precio_producto}</del>
-          </h4>
-          <div class="product-rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div class="product-btns">
-            <button class="quick-view">
-              <i class="fa fa-eye"></i><span class="tooltipp">Ver</span>
-            </button>
-          </div>
-        </div>
-        <div class="add-to-cart">
-          <button class="add-to-cart-btn">
-            <i class="fa fa-shopping-cart"></i> Agregar al carro
-          </button>
-        </div>
-      </div>`;
+    if (index < 3) {
+      html += `
+      <div class="card">
+        <img src="${imagen}" alt="" />
+        <a class="product-link" href="/OnlineStore/productos/${id_producto}">
+          <h1>${nombre_producto}</h1>
+        </a>
+        <p class="price">$${precio_producto}</p>
+        <p>${descripcion}</p>
+        <p>${marca}</p>
+        <p>${categoria}</p>
+        <p><button>Agregar al carro</button></p>
+      </div>
+      `;
+    }
   });
+<<<<<<< HEAD
   slider[0].innerHTML += html;
   //slider.appendChild(node);
   //crearPagination();
 }*/
+=======
+  newProducts.innerHTML = html;
+}
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e

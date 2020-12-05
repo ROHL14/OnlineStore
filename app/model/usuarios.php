@@ -1,5 +1,5 @@
 <?php
-include_once "app/models/db.class.php";
+include_once "app/model/db.class.php";
 
 class Usuarios extends BaseDeDatos
 {
@@ -32,14 +32,14 @@ class Usuarios extends BaseDeDatos
     where user_name='$name' and id_usuario<>'$id'");
   }
 
-  public function save($data, $img)
+  public function save($data)
   {
     return $this->executeInsert("insert into usuarios set user_name='{$data['user_name']}'
     ,password=md5('{$data['password']}'),nombres='{$data['nombres']}'
     ,apellidos='{$data['apellidos']}'");
   }
 
-  public function update($data, $img)
+  public function update($data)
   {
     return $this->executeUpdate("update usuarios set user_name='{$data['user_name']}'
     ,password=if('{$data['password']}'='',password,md5('{$data['password']}')),nombres='{$data['nombres']}'

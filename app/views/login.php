@@ -30,9 +30,10 @@
               <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit">Login</button>
               </div>
-              <p class="text-muted text-center">UNICAES &copy 2020</p>
+
             </form>
           </div>
+          <p class="text-muted text-center">UNICAES &copy 2020</p>
         </div>
       </div>
     </div>

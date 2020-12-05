@@ -129,6 +129,7 @@ class Api {
     const data = await query.json();
     return data;
   }
+<<<<<<< HEAD
   //marcas
   async deleteMarca(id) {
     const query = await fetch(`${BASE_API}marcas/deleteMarca?id=${id}`);
@@ -144,12 +145,38 @@ class Api {
     const query = await fetch(`${BASE_API}marcas/save`, {
       method: "POST",
       body:form
+=======
+
+  // Marcas
+  async loadMarcasData() {
+    const query = await fetch(`${BASE_API}marcas/getAll`);
+    const data = await query.json();
+    return data;
+  }
+
+  async saveMarca(form) {
+    const query = await fetch(`${BASE_API}marcas/save`, {
+      method: "POST",
+      body: form,
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
     });
     const data = await query.json();
     return data;
   }
+<<<<<<< HEAD
   async loadMarcas() {
     const query = await fetch(`${BASE_API}marcas/getAll`);
+=======
+
+  async getOneMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/getOneMarca?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
+
+  async deleteMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/deleteMarca?id=${id}`);
+>>>>>>> d86b544e6b0a62572fe7546a5dc0aeec08217e9e
     const data = await query.json();
     return data;
   }
