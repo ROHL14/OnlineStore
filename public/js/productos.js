@@ -1,19 +1,24 @@
+const container = document.getElementById("productosBody");
 const productsSection = document.getElementById("productsSection");
 const pagination = document.querySelector(".pagination");
+const sideCategoria = document.getElementById("sideCategoria");
+const sideMarca = document.getElementById("sideMarca");
+const miForm = document.getElementById("miForm");
+const btnCancelar = document.getElementById("btnCancelar");
 const API = new Api();
-const recordShow = 4;
+const recordShow = 8;
 const objDatos = {
   records: [],
   recordsFilter: [],
   currentPage: 1,
   filter: "",
 };
-
 // Eventos
 eventListeners();
 
 function eventListeners() {
   document.addEventListener("DOMContentLoaded", cargarDatos);
+  btnCancelar.addEventListener("click", cancelarProducto);
 }
 
 function cargarDatos() {
@@ -75,16 +80,19 @@ function createCards() {
       } = item;
 
       html += `
-        <div class="card">
-          <img src="${imagen}" alt="" />
-          <a class="product-link" href="/OnlineStore/productos/${id_producto}">
-            <h1>${nombre_producto}</h1>
-          </a>
-          <p class="price">$${precio_producto}</p>
-          <p>${descripcion}</p>
-          <p>${marca}</p>
-          <p>${categoria}</p>
-          <p><button>Agregar al carro</button></p>
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+          <div class="single-product">
+            <div class="product-thumb">
+              <img class="img-scard" src="${imagen}" alt="">
+            </div>
+            <div class="product-title">
+              <h3><a href="#">${nombre_producto}</a></h3>
+            </div>
+            <div class="product-scard-btns">
+              <a href="#" class="a-scard scard-btn-small mr-2">$${precio_producto}</a>
+              <a href="#" class="a-scard scard-btn-round mr-2" onclick="verProducto(${id_producto})"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+          </div>
         </div>
         `;
     }
@@ -132,4 +140,84 @@ function crearPagination() {
     createCards();
   };
   pagination.append(elSiguiente);
+}
+
+function rellenarCategorias(records) {
+  let html = "";
+  records.forEach((item) => {
+    const { id_categoria, categoria } = item;
+    html += `
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="filtro" id="${categoria}" value="${categoria}" onchange="aplicarFiltro(event)">
+      <label class="form-check-label" for="${categoria}">
+        ${categoria}
+      </label>
+    </div>
+    `;
+  });
+  sideCategoria.innerHTML = html;
+}
+
+function rellenarMarcas(records) {
+  let html = "";
+  records.forEach((item) => {
+    const { id_marca, marca } = item;
+    html += `
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="filtro" id="${marca}" value="${marca}" onchange="aplicarFiltro(event)">
+      <label class="form-check-label" for="${marca}">
+        ${marca}
+      </label>
+    </div>
+    `;
+  });
+  sideMarca.innerHTML = html;
+}
+
+function aplicarFiltro(e) {
+  objDatos.filter = e.target.value;
+  createCards();
+}
+
+function verProducto(id) {
+  container.classList.add("d-none");
+  panelFormulario.classList.remove("d-none");
+  API.getOneProducto(id)
+    .then((data) => {
+      if (data.success) {
+        crearCarta(data.records[0]);
+      }
+    })
+    .catch((error) => console.error("Error", error));
+}
+
+function crearCarta(record) {
+  const {
+    id_producto,
+    nombre_producto,
+    precio_producto,
+    descripcion,
+    imagen,
+    categoria,
+    marca,
+    cantidad,
+  } = record;
+  console.log(record);
+  document.querySelector("#marca").innerHTML = marca;
+  document.querySelector("#nombre").innerHTML = nombre_producto;
+  document.querySelector("#categoria").innerHTML = categoria;
+  document.querySelector("#precio").innerHTML = `$${precio_producto}`;
+  document.querySelector("#descripcion").innerHTML = descripcion;
+  divFoto.innerHTML = `<img src='${imagen}' class='h-100 w-100' style='object-fit:contain;'>`;
+  if (cantidad > 0) {
+    document.querySelector("#cantidad").innerHTML = " En existencias";
+  } else {
+    document.querySelector("#cantidad").innerHTML = " Producto agotado";
+  }
+}
+
+function cancelarProducto() {
+  container.classList.remove("d-none");
+  panelFormulario.classList.add("d-none");
+  cargarDatos();
 }

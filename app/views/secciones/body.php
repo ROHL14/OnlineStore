@@ -1,5 +1,5 @@
-<section class="container-fluid mt-5">
-  <div class="title">
+<section class="container-fluid mt-5" style="height: 85.5vh;">
+  <div class=" title">
     <h2 class="text-center">
       Nuevos Productos
     </h2>

@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300");
 
+:root {
+  --clr1: #ddd;
+  --clr2: #efefef;
+  --clr3: #333;
+  --clr4: tomato;
+  --border-radius: 7px;
+  --text-radius: 50em;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -82,8 +91,9 @@ body {
   font-size: 20px;
   text-transform: uppercase;
 }
-.card-main .card-main__title .icon {
+.card-main .card-main__title #btnCancelar {
   -webkit-box-flex: 1;
+  border: none;
   flex: 1 0 10px;
   background: #115dd8;
   color: #fff;
@@ -94,7 +104,7 @@ body {
 .card-main .card-main__title .icon > a {
   color: #fff;
 }
-.card-main .card-main__title .icon:hover {
+.card-main .card-main__title #btnCancelar:hover {
   background: #252525;
 }
 .card-main .card-main__body {
@@ -252,4 +262,153 @@ body {
 .card-main .card-main__footer .action button:hover {
   background: #fff;
   color: #115dd8;
+}
+
+/* Small Card */
+.single-product {
+  box-shadow: inset -2px -2px 8px white,
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 50px;
+  height: 25rem;
+}
+.single-product .product-thumb {
+  margin-bottom: 20px;
+}
+.img-scard {
+  display: block;
+  max-width: 100%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.single-product .product-title {
+  margin-bottom: 20px;
+  text-align: center;
+  align-items: center;
+}
+.single-product .product-title h3 {
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+.single-product .product-title h3 a {
+  color: #292929;
+  text-decoration: none;
+}
+.single-product .product-title h3 a:hover {
+  color: #7289ab;
+}
+.single-product:hover {
+  box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-scard-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.a-scard {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #292929;
+}
+
+.scard-btn-small {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px 32px;
+  border-radius: 50px;
+  box-shadow: inset -2px -2px 8px white,
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.4s;
+}
+
+.scard-btn-round {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+.scard-btn-small:hover {
+  box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+  color: #7289ab;
+  text-decoration: none;
+}
+.scard-btn-round:hover {
+  box-shadow: inset -2px -2px 8px white,
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  color: #7289ab;
+}
+
+.scard-button-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.scard-bttn-def {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 42px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.4s;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+.scard-bttn-def:hover {
+  color: #7289ab;
+  box-shadow: inset -2px -2px 8px white,
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+  color: #7289ab;
+}
+.scard-bttn-def:hover span {
+  display: inline-block;
+  transform: scale(0.98);
+}
+
+.perfooter {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #323b40;
+  color: white;
+  text-align: center;
+}
+
+.perfooter p {
+  padding: 10px;
+  margin-bottom: 0;
+}
+
+#container {
+  min-height: 83.7vh;
 }

@@ -27,6 +27,3 @@
 
   </div>
 </nav>
-
-<!-- main -->
-<script type="text/javascript" src="<?php echo URL; ?>public/js/menu.js"></script>

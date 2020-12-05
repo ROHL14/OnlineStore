@@ -45,17 +45,20 @@ function createCards() {
     } = item;
     if (index < 3) {
       html += `
-      <div class="card">
-        <img src="${imagen}" alt="" />
-        <a class="product-link" href="/OnlineStore/productos/${id_producto}">
-          <h1>${nombre_producto}</h1>
-        </a>
-        <p class="price">$${precio_producto}</p>
-        <p>${descripcion}</p>
-        <p>${marca}</p>
-        <p>${categoria}</p>
-        <p><button>Agregar al carro</button></p>
-      </div>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div class="single-product">
+            <div class="product-thumb">
+              <img class="img-scard" src="${imagen}" alt="">
+            </div>
+            <div class="product-title">
+              <h3><a href="#">${nombre_producto}</a></h3>
+            </div>
+            <div class="product-scard-btns">
+              <a href="#" class="a-scard scard-btn-small mr-2">$${precio_producto}</a>
+              <a href="#" class="a-scard scard-btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
       `;
     }
   });
