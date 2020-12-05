@@ -1,4 +1,5 @@
 const newProducts = document.getElementById("newProducts");
+const API = new Api();
 const objDatos = {
   records: [],
   recordsFilter: [],
