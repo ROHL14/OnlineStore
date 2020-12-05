@@ -102,6 +102,7 @@ function cargarDatos() {
 			}
 	).
 	then(data=>{
+		
 		rellenarCategorias(data.records);
 		return API.loadMarcas();
 	}).
@@ -165,7 +166,7 @@ function crearTabla() {
 			      <th scope="col">${descripcion}</th>
 			      <th scope="col">${categoria}</th>
 			      <th scope="col">${marca}</th>
-                  <th scope="col"><button class='btn btn-primary btn-xs' onclick='editarLibro("${id_producto}")'><i class='far fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-xs' onclick='eliminarLibro("${id_producto}")'><i class='fas fa-trash-alt'></i></button></th>
+                  <th scope="col"><button class='btn btn-primary btn-xs' onclick='editarProducto("${id_producto}")'><i class='far fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-xs' onclick='eliminarProducto("${id_producto}")'><i class='fas fa-trash-alt'></i></button></th>
                   <th scope="col">${precio_producto}</th>
 			    </tr>`;
 		}

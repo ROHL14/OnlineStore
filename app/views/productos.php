@@ -38,7 +38,7 @@
 					      <th scope="col">Nombre</th>
 					      <th scope="col">Descripcion</th>
 					      <th scope="col">Categoria</th>
-                          <th scope="col">Autor</th>
+                          <th scope="col">Marca</th>
                           <th scope="col">precio</th>
 					      <th scope="col">&nbsp;</th>
 					    </tr>
