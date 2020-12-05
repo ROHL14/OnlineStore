@@ -8,7 +8,7 @@ class BaseDeDatos
   {
     $this->conexion = new mysqli(
       "localhost",
-      "user_store",
+      "root",
       "catolica",
       "OnlineStore"
     );

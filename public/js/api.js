@@ -1,4 +1,4 @@
-const BASE_API = "/OnlineStore/";
+const BASE_API = '/OnlineStore/';
 
 class Api {
   async validarLogin(form) {
@@ -72,11 +72,7 @@ class Api {
     return data;
   }
 
-  async loadMarcas() {
-    const query = await fetch(`${BASE_API}productos/getAllMarcas`);
-    const data = await query.json();
-    return data;
-  }
+ 
 
   // Carrito
   async loadCarrito() {
@@ -130,6 +126,30 @@ class Api {
 
   async deleteCategoria(id) {
     const query = await fetch(`${BASE_API}categorias/deleteCategoria?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
+  //marcas
+  async deleteMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/deleteMarca?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
+  async getOneMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/getOneMarca?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
+  async saveMarca(form) {
+    const query = await fetch(`${BASE_API}marcas/save`, {
+      method: "POST",
+      body:form
+    });
+    const data = await query.json();
+    return data;
+  }
+  async loadMarcas() {
+    const query = await fetch(`${BASE_API}marcas/getAll`);
     const data = await query.json();
     return data;
   }

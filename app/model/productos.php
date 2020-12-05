@@ -1,80 +1,56 @@
 <?php
 include_once "app/model/db.class.php";
+class Productos extends BaseDeDatos {
+	public function __construct() {
+		parent::conectar();
+	}
 
-class Productos extends BaseDeDatos
-{
-  public function __construct()
-  {
-    parent::conectar();
-  }
+	public function getAll() {
+		return $this->executeQuery("
+    Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca");
+	}
 
-  public function getAll()
-  {
-    return $this->executeQuery("
-    Select id_producto,nombre_producto,precio_producto,descripcion,cantidad,imagen,id_categoria,id_marca
-    from productos
-    order by id_producto");
-  }
+	public function getProductoByCategory($id) {
+		return $this->executeQuery("Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca where b.id_categoria='$id'");
+	}
 
-  public function getProductoByName($name)
-  {
-    return $this->executeQuery("
-    Select id_producto,nombre_producto,precio_producto,descripcion,cantidad,imagen,id_categoria,id_marca
-    from productos
-    where nombre_producto='$name'");
-  }
+	public function getOneProductoByID($id) {
+		return $this->executeQuery("Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca where a.id_marca='$id'");
+	}
 
-  public function getProductoByNameAndId($name, $id)
-  {
-    return $this->executeQuery("
-    Select id_producto,nombre_producto,precio_producto,descripcion,cantidad,imagen,id_categoria,id_marca
-    from productos
-    where nombre_producto='$name' and id_producto<>'$id'");
-  }
+	public function getAllCategorias() {
+		return $this->executeQuery("Select * from categorias");
+	}
 
-  public function save($data, $img)
-  {
-    return $this->executeInsert("insert into productos set nombre_producto='{$data['nombre_producto']}'
-    ,precio_producto='{$data['precio_producto']}'
-    ,descripcion='{$data['descripcion']}'
-    ,cantidad='{$data['cantidad']}'
-    ,imagen='{$img}'
-    ,id_categoria='{$data['id_categoria']}'
-    ,id_marca='{$data['id_marca']}'");
-  }
+	public function getAllMarcas() {
+		return $this->executeQuery("Select * from marcas");
+	}
 
-  public function update($data, $img)
-  {
-    return $this->executeUpdate("update productos set nombre_producto='{$data['nombre_producto']}'
-    ,precio_producto='{$data['precio_producto']}'
-    ,decripcion='{$data['decripcion']}'
-    ,cantidad='{$data['cantidad']}'
-    ,imagen=if('{$img}'='',imagen,'{$img}')
-    ,id_categoria='{$data['id_categoria']}'
-    ,id_marca='{$data['id_marca']}'
-    where id_producto='{$data['id_producto']}'");
-  }
+	public function save($data,$img) {
+		return $this->executeInsert("insert into productos set nombre_producto='{$data['nombre_producto']}', descripcion='{$data['descripcion']}', id_categoria='{$data['id_categoria']}', id_marca='{$data['id_marca']}', imagen='{$img}', precio_producto='{$data['[precio_producto']}'");
+	}
 
-  public function getOneProducto($id)
-  {
-    return $this->executeQuery("
-    Select id_producto,nombre_producto,precio_producto,descripcion,cantidad,imagen,id_categoria,id_marca
-    from productos
-    where id_producto='$id'");
-  }
+	public function update($data,$img) {
+		return $this->executeUpdate("update productos set nombre_producto='{$data['nombre_producto']}', descripcion='{$data['descripcion']}', id_categoria='{$data['id_categoria']}', id_marca='{$data['id_marca']}', imagen=if('$img',imagen,'$img'), precio_producto='{$data['precio_producto']}' where id_producto='{$data['id_producto']}'");
+	}
 
-  public function deleteProducto($id)
-  {
-    return $this->executeUpdate("delete from productos where id_producto='$id'");
-  }
+	public function getProductoByName($nombre_producto) {
+		return $this->executeQuery("Select * from productos where nombre_producto='$nombre_producto'");
+	}
 
-  public function getAllCategorias()
-  {
-    return $this->executeQuery("Select * from categorias");
-  }
+	public function getProductoByNameAndId($nombre_producto,$id) {
+		return $this->executeQuery("Select * from productos where nombre_producto='$nombre_producto' and id_producto<>'$id'");
+	}
 
-  public function getAllMarcas()
-  {
-    return $this->executeQuery("Select * from marcas");
-  }
+	public function getOneProducto($id) {
+		return $this->executeQuery("Select * from productos where id_producto='$id'");
+	}
+
+	public function deleteProducto($id) {
+		return $this->executeUpdate("delete from productos where id_producto='$id'");
+	}
+
+	
 }
+
+?>

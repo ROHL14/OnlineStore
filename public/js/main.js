@@ -1,4 +1,4 @@
-const slider = document.getElementsByClassName("slick-track");
+/*const slider = document.getElementsByClassName("slick-track");
 const API = new Api();
 const objDatos = {
   records: [],
@@ -21,7 +21,7 @@ function eventListeners() {
 }
 
 // Funciones
-function cargarDatos() {
+/*function cargarDatos() {
   API.loadProductos()
     .then((data) => {
       if (data.success) {
@@ -48,7 +48,7 @@ function cargarDatos() {
     .catch((error) => {
       console.error("Error msg:", error);
     });
-}
+}  */
 
 /*function rellenarCategorias(records) {
   //idCategoria.innerHTML = "";
@@ -70,7 +70,7 @@ function rellenarMarcas(records) {
     optionMarca.textContent = marca;
     //idMarca.append(optionMarca);
   });
-}*/
+}
 
 function createCards() {
   console.log(slider[0]);
@@ -124,4 +124,4 @@ function createCards() {
   slider[0].innerHTML += html;
   //slider.appendChild(node);
   //crearPagination();
-}
+}*/
