@@ -182,7 +182,7 @@ function aplicarFiltro(e) {
 function verProducto(id) {
   container.classList.add("d-none");
   panelFormulario.classList.remove("d-none");
-  API.getOneProducto(id)
+  API.getOneProductoJoin(id)
     .then((data) => {
       if (data.success) {
         crearCarta(data.records[0]);

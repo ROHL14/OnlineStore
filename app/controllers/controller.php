@@ -17,8 +17,10 @@ class Controller
       }
     }
     if (empty($param)) {
+      
       $this->view->render($view);
       return;
+
     }
     if (method_exists($this, $param)) {
       $this->$param();

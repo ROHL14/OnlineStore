@@ -60,6 +60,14 @@ class Api {
     return data;
   }
 
+  async getOneProductoJoin(id) {
+    const query = await fetch(
+      `${BASE_API}productos/getOneProductoJoin?id=${id}`
+    );
+    const data = await query.json();
+    return data;
+  }
+
   async deleteProducto(id) {
     const query = await fetch(`${BASE_API}productos/deleteProducto?id=${id}`);
     const data = await query.json();
@@ -68,12 +76,6 @@ class Api {
 
   async loadCategorias() {
     const query = await fetch(`${BASE_API}productos/getAllCategorias`);
-    const data = await query.json();
-    return data;
-  }
-
-  async loadMarcas() {
-    const query = await fetch(`${BASE_API}productos/getAllMarcas`);
     const data = await query.json();
     return data;
   }
