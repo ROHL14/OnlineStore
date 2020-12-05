@@ -3,27 +3,27 @@
 
 <head>
   <?php
-  include_once "app/views/secciones/css.php";
+  include_once "app/views/secciones/cssView.php";
   ?>
 </head>
 
 <body>
 
   <?php
-  include_once "app/views/secciones/menu.php";
+  include_once "app/views/secciones/menuView.php";
   ?>
 
 
 
-  <?php include_once "app/views/secciones/body.php"; ?>
+  <?php include_once "app/views/secciones/bodyView.php"; ?>
 
 
   <?php
-  include_once "app/views/secciones/footer.php";
+  include_once "app/views/secciones/footerView.php";
   ?>
 
   <?php
-  include_once "app/views/secciones/script.php";
+  include_once "app/views/secciones/scriptView.php";
   ?>
 
   <!-- main -->

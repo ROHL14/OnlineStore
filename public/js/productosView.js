@@ -7,7 +7,7 @@ const panelProducto = document.getElementById("panelProducto");
 const checkout = document.getElementById("checkout");
 const btnCancelar = document.getElementById("btnCancelar");
 const API = new Api();
-const recordShow = 8;
+const recordShow = 3;
 const objDatos = {
   records: [],
   recordsFilter: [],

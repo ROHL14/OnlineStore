@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-  <?php include_once "app/views/secciones/css.php"; ?>
+  <?php include_once "app/views/secciones/cssView.php"; ?>
 </head>
 
 <body class="bg-dark">
   <div>
     <?php
-    include_once "app/views/secciones/menu.php";
+    include_once "app/views/secciones/menuView.php";
     ?>
   </div>
   <div class="container py-5">
@@ -39,7 +39,7 @@
     </div>
   </div>
 </body>
-<?php include_once "app/views/secciones/script.php"; ?>
+<?php include_once "app/views/secciones/scriptView.php"; ?>
 <script type="text/javascript" src="<?php echo URL; ?>public/js/loginView.js"></script>
 
 </html>

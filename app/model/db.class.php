@@ -9,8 +9,8 @@ class BaseDeDatos
     $this->conexion = new mysqli(
       "localhost",
       "root",
-      "catolica",
-      "OnlineStore"
+      "",
+      "onlinestore"
     );
 
     if ($this->conexion->connect_error) {
