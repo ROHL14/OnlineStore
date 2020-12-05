@@ -33,7 +33,7 @@
 
             </form>
           </div>
-          <p class="text-muted text-center">OnlineStore &copy 2020</p>
+          <p class="text-muted text-center">UNICAES &copy 2020</p>
         </div>
       </div>
     </div>
