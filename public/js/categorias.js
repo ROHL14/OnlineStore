@@ -103,11 +103,11 @@ function crearTabla() {
 	let html="";
 	objDatos.recordsFilter.forEach((item,index)=>{
 		if ((index>=recordIni) && (index<=recordFin)) {
-			const {id_cate, categoria}=item;
+			const {id_categoria, categoria}=item;
 			html+=`<tr>
 			      <th scope="col">${index+1}</th>
 			      <th scope="col">${categoria}</th>
-			      <th scope="col"><button class='btn btn-primary btn-xs' onclick='editarCategoria("${id_cate}")'><i class='far fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-xs' onclick='eliminarCategoria("${id_cate}")'><i class='fas fa-trash-alt'></i></button></th>
+			      <th scope="col"><button class='btn btn-primary btn-xs' onclick='editarCategoria("${id_categoria}")'><i class='far fa-edit'></i></button>&nbsp;&nbsp;<button class='btn btn-danger btn-xs' onclick='eliminarCategoria("${id_categoria}")'><i class='fas fa-trash-alt'></i></button></th>
 			    </tr>`;
 		}
 	});
@@ -217,4 +217,25 @@ function eliminarCategoria(id) {
 function limpiarForm(op) {
 	miForm.reset();
 	document.querySelector("#id_categoria").value="0";
+}
+function editarCategoria(id) {
+	limpiarForm();
+	panelDatos.classList.add("d-none");
+	panelFormulario.classList.remove("d-none");
+	API.getOneCategoria(id).
+	then(data=>{
+				if (data.success) {
+					mostrarDatosForm(data.records[0]);
+				} else {
+					Swal.fire({
+					  icon: 'error',
+					  title: 'Error',
+					  text: data.msg
+					});
+				}
+			}
+	).catch(error=>{
+			console.error("Error:",error);
+		}
+	);
 }
