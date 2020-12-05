@@ -20,7 +20,7 @@ class ProductosController extends Controller
 		$info = array('success' => true, 'records' => $records);
 		echo json_encode($info);
 	}
-	public function getAllAutores()
+	public function getAllMarcas()
 	{
 		$records = $this->productos->getAllMarcas();
 		$info = array('success' => true, 'records' => $records);

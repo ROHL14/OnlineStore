@@ -80,6 +80,12 @@ class Api {
     return data;
   }
 
+  async loadMarcas() {
+    const query = await fetch(`${BASE_API}productos/getAllMarcas`);
+    const data = await query.json();
+    return data;
+  }
+
   // Carrito
   async loadCarrito() {
     const query = await fetch(`${BASE_API}carrito/getAll`);
