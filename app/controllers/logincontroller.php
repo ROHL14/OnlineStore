@@ -6,7 +6,7 @@ class LoginController extends Controller
   public function __construct($param)
   {
     $this->user = new Login();
-    parent::__construct("loginView", $param);
+    parent::__construct("login", $param);
   }
 
   public function validar()
@@ -44,6 +44,6 @@ class LoginController extends Controller
     }
 
     session_destroy();
-    $this->view->render("loginView");
+    $this->view->render("login");
   }
 }

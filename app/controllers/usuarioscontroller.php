@@ -1,5 +1,5 @@
 <?php
-include_once "app/model/usuarios.php";
+include_once "app/models/usuarios.php";
 class UsuariosController extends Controller
 {
   private $user;
@@ -22,19 +22,19 @@ class UsuariosController extends Controller
 
   public function save()
   {
-
+    $img = "";
     if ($_POST["id_usuario"] == "0") {
       if (count($this->user->getUserByName($_POST["usuario"])) > 0) {
         $info = array('success' => false, 'msg' => 'El usuario ya existe');
       } else {
-        $records = $this->user->save($_POST);
+        $records = $this->user->save($_POST, $img);
         $info = array('success' => true, 'msg' => 'Registro guardado con exito');
       }
     } else {
       if (count($this->user->getUserByNameAndId($_POST["usuario"], $_POST["id_usuario"])) > 0) {
         $info = array('success' => false, 'msg' => 'El usuario ya existe');
       } else {
-        $records = $this->user->update($_POST);
+        $records = $this->user->update($_POST, $img);
         $info = array('success' => true, 'msg' => 'Registro guardado con exito');
       }
     }
