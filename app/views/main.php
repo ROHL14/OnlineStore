@@ -8,11 +8,11 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <?php
-    include_once "app/views/secciones/menu.php";
-    ?>
-  </div>
+
+  <?php
+  include_once "app/views/secciones/menu.php";
+  ?>
+
 
 
   <?php include_once "app/views/secciones/body.php"; ?>
@@ -25,6 +25,9 @@
   <?php
   include_once "app/views/secciones/script.php";
   ?>
+
+  <!-- main -->
+  <script type="text/javascript" src="<?php echo URL; ?>public/js/main.js"></script>
 </body>
 
 </html>

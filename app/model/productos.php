@@ -11,9 +11,7 @@ class Productos extends BaseDeDatos
   public function getAll()
   {
     return $this->executeQuery("
-    Select id_producto,nombre_producto,precio_producto,descripcion,cantidad,imagen,id_categoria,id_marca
-    from productos
-    order by id_producto");
+    Select a.*, b.categoria,c.marca from marcas c inner join (categorias b inner join productos a on b.id_categoria=a.id_categoria) on c.id_marca=a.id_marca");
   }
 
   public function getProductoByName($name)

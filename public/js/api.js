@@ -133,4 +133,32 @@ class Api {
     const data = await query.json();
     return data;
   }
+
+  // Marcas
+  async loadMarcasData() {
+    const query = await fetch(`${BASE_API}marcas/getAll`);
+    const data = await query.json();
+    return data;
+  }
+
+  async saveMarca(form) {
+    const query = await fetch(`${BASE_API}marcas/save`, {
+      method: "POST",
+      body: form,
+    });
+    const data = await query.json();
+    return data;
+  }
+
+  async getOneMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/getOneMarca?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
+
+  async deleteMarca(id) {
+    const query = await fetch(`${BASE_API}marcas/deleteMarca?id=${id}`);
+    const data = await query.json();
+    return data;
+  }
 }
