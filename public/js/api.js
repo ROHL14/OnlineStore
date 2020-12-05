@@ -165,4 +165,14 @@ class Api {
     const data = await query.json();
     return data;
   }
+
+  // Compras
+  async saveDetalleCompra(form) {
+    const query = await fetch(`${BASE_API}compras/save`, {
+      method: "POST",
+      body: form,
+    });
+    const data = await query.json();
+    return data;
+  }
 }

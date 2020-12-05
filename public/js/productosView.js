@@ -3,7 +3,8 @@ const productsSection = document.getElementById("productsSection");
 const pagination = document.querySelector(".pagination");
 const sideCategoria = document.getElementById("sideCategoria");
 const sideMarca = document.getElementById("sideMarca");
-const miForm = document.getElementById("miForm");
+const panelProducto = document.getElementById("panelProducto");
+const checkout = document.getElementById("checkout");
 const btnCancelar = document.getElementById("btnCancelar");
 const API = new Api();
 const recordShow = 8;
@@ -19,6 +20,7 @@ eventListeners();
 function eventListeners() {
   document.addEventListener("DOMContentLoaded", cargarDatos);
   btnCancelar.addEventListener("click", cancelarProducto);
+  checkout.addEventListener("submit", realizarCompra);
 }
 
 function cargarDatos() {
@@ -86,10 +88,11 @@ function createCards() {
               <img class="img-scard" src="${imagen}" alt="">
             </div>
             <div class="product-title">
-              <h3><a href="#">${nombre_producto}</a></h3>
+              <h3>${nombre_producto}</h3>
+              <h3>$${precio_producto}</h3>
             </div>
             <div class="product-scard-btns">
-              <a href="#" class="a-scard scard-btn-small mr-2">$${precio_producto}</a>
+              
               <a href="#" class="a-scard scard-btn-round mr-2" onclick="verProducto(${id_producto})"><i class="fa fa-shopping-cart"></i></a>
             </div>
           </div>
@@ -181,7 +184,7 @@ function aplicarFiltro(e) {
 
 function verProducto(id) {
   container.classList.add("d-none");
-  panelFormulario.classList.remove("d-none");
+  panelProducto.classList.remove("d-none");
   API.getOneProductoJoin(id)
     .then((data) => {
       if (data.success) {
@@ -202,7 +205,6 @@ function crearCarta(record) {
     marca,
     cantidad,
   } = record;
-  console.log(record);
   document.querySelector("#marca").innerHTML = marca;
   document.querySelector("#nombre").innerHTML = nombre_producto;
   document.querySelector("#categoria").innerHTML = categoria;
@@ -214,10 +216,47 @@ function crearCarta(record) {
   } else {
     document.querySelector("#cantidad").innerHTML = " Producto agotado";
   }
+  document.querySelector(
+    "#buttonSection"
+  ).innerHTML = `<button type="button" onclick="abrirFormulario(${id_producto})">Comprar</button>`;
 }
 
 function cancelarProducto() {
   container.classList.remove("d-none");
-  panelFormulario.classList.add("d-none");
+  panelProducto.classList.add("d-none");
   cargarDatos();
+}
+
+function abrirFormulario(id) {
+  panelProducto.classList.add("d-none");
+  checkout.classList.remove("d-none");
+  API.getOneProductoJoin(id)
+    .then((data) => {
+      if (data.success) {
+        console.log(data);
+      }
+    })
+    .catch((error) => console.error("Error", error));
+}
+
+function cerrarFormulario() {
+  panelProducto.classList.remove("d-none");
+  checkout.classList.add("d-none");
+  cancelarProducto();
+}
+
+function realizarCompra(e) {
+  e.preventDefault();
+  /*const formData = new FormData(checkout);
+  API.saveDetalleCompra(formData)
+    .then((data) => {
+      if (data.success) {
+        cerrarFormulario();
+        cargarDatos();
+      }
+    })
+    .catch((error) => {
+      console.error("Error", error);
+    });*/
+  cerrarFormulario();
 }

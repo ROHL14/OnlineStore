@@ -55,9 +55,9 @@
       </div>
     </div>
 
-    <div class="content-panel mt-4 d-none p-5" id="panelFormulario">
+    <div class="content-panel d-none p-3" id="panelProducto">
       <div class="row">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-8 mx-auto">
           <div class="card-main">
             <div class="card-main__title">
               <button id="btnCancelar">
@@ -88,14 +88,101 @@
             </div>
             <div class="card-main__footer">
 
-              <div class="action">
-                <button type="button">Comprar</button>
+              <div class="action" id="buttonSection">
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="col-md-8 order-md-1 mx-auto d-none p-5" id="checkout">
+      <h4 class="mb-3">Formulario de Envio</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Primer nombre requerido.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Apellido requerido.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Ingrese un correo electronico valido.
+            </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="direccion">Direccion</label>
+          <input type="text" class="form-control" id="direccion" placeholder="1234 Main St" required>
+          <div class="invalid-feedback">
+            Ingrese la direccion de envio.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" required>
+            <div class="invalid-feedback">
+              Ingrese una ciudad valida.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Pago</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre_tarjeta">Nombre en la tarjeta</label>
+            <input type="text" class="form-control" id="nombre_tarjeta" placeholder="" required>
+            <small class="text-muted">Nombre completo del propietario de la tarjeta</small>
+            <div class="invalid-feedback">
+              Nombre en la tarjeta es requerido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="numero_tarjeta">Numero de la tarjeta de credito</label>
+            <input type="text" class="form-control" id="numero_tarjeta" placeholder="" required>
+            <div class="invalid-feedback">
+              Numero de la tarjeta de credito es requerido
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="fecha_expiracion">Fecha de expiracion</label>
+            <input type="text" class="form-control" id="fecha_expiracion" placeholder="" required>
+            <div class="invalid-feedback">
+              Fecha de expiracion es requerida
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="" required>
+            <div class="invalid-feedback">
+              Codigo de seguridad es requerido
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Realizar pago</button>
+      </form>
+    </div>
+  </div>
 
 
   </div>

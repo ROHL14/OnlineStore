@@ -51,10 +51,10 @@ function createCards() {
               <img class="img-scard" src="${imagen}" alt="">
             </div>
             <div class="product-title">
-              <h3><a href="#">${nombre_producto}</a></h3>
+              <h3>${nombre_producto}</h3>
+              <h3>$${precio_producto}</h3>
             </div>
             <div class="product-scard-btns">
-              <a href="#" class="a-scard scard-btn-small mr-2">$${precio_producto}</a>
               <a href="#" class="a-scard scard-btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
             </div>
           </div>
